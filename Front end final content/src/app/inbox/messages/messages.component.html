@@ -1,0 +1,88 @@
+<div class="example-container">
+  <mat-card-header>
+    <mat-card-title>Send New Message</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-card class="content-card">
+      <mat-form-field>
+        <mat-label>To</mat-label>
+        <!-- <input matInput #input placeholder="11" [(ngModel)]="receiver_id"> -->
+        <mat-select [(ngModel)]="physicians">
+          <mat-option *ngFor="let sender of senderList" [value]="sender.id">
+            {{sender.firstName}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <textarea matInput #input placeholder="Message" [(ngModel)]="text_message"></textarea>
+      </mat-form-field>
+      <!-- <mat-card-actions> -->
+      <button mat-raised-button (click)="sendMessage(physicians, text_message)">Send</button>
+      <!-- </mat-card-actions> -->
+    </mat-card>
+  </mat-card-content>
+</div>
+
+
+<div class="example-table-container">
+  <mat-card-header>
+    <mat-card-title>Messages Received</mat-card-title>
+  </mat-card-header>
+  <table mat-table [dataSource]="dataSource1"  matSort matSortActive="date"
+    matSortDisableClear>
+    <!-- patient Id Column -->
+    <ng-container matColumnDef="msg_id">
+      <th mat-header-cell [hidden]="true" *matHeaderCellDef>User ID</th>
+      <td mat-cell [hidden]="true" *matCellDef="let row">{{row.msg_id}}</td>
+    </ng-container>
+
+    <!-- patient_name Column -->
+    <ng-container matColumnDef="sender_name">
+      <th mat-header-cell *matHeaderCellDef>Physicians Name</th>
+      <td mat-cell *matCellDef="let row">{{row.physicians}}</td>
+    </ng-container>
+
+    <!-- subject Column -->
+    <ng-container matColumnDef="message_body">
+      <th mat-header-cell *matHeaderCellDef>Message</th>
+      <td mat-cell *matCellDef="let row">{{row.message_body}}</td>
+    </ng-container>
+
+    <!-- date Column -->
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef>Date</th>
+      <td mat-cell *matCellDef="let row">{{row.date}}</td>
+    </ng-container>
+
+     <!-- patient Id Column -->
+     <ng-container matColumnDef="is_replied">
+      <th mat-header-cell [hidden]="true" *matHeaderCellDef mat-sort-header>is_replied</th>
+      <td mat-cell [hidden]="true" *matCellDef="let row">{{row.is_replied}}</td>
+    </ng-container>
+    
+
+    <!-- Action column -->
+     <ng-container matColumnDef="Action">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
+      <td mat-cell *matCellDef="let row" class="action-link">
+        <div>
+          <button mat-raised-button color="primary" (click)="openDialog(row)">Reply</button>
+          &nbsp;&nbsp;
+          <button  mat-raised-button color="warn" (click)="cancelMessage(row.msg_id)">Cancel</button>
+        </div>
+        <div *ngIf = "isReplied(row) == true">
+          <button  mat-raised-button color="accent">Acknowledged</button>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row  *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                       showFirstLastButtons 
+                       aria-label="Select page of periodic elements">
+        </mat-paginator>
+  <!-- <mat-paginator #paginator [length]="paginatedObj.totalItems" [pageSize]="10" [pageSizeOptions]="[10, 15, 20]"></mat-paginator> -->
+
+</div>

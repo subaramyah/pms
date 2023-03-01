@@ -1,0 +1,224 @@
+<p>{{result}}</p>
+<mat-horizontal-stepper #stepper>
+
+  <form style="text-align:center;"  #patientVisit = "ngForm" name="multistep" [formGroup]="multistep">
+    
+      <mat-step [stepControl]="firstFormGroup">
+  
+    
+      <div formGroupName="vitalSigns">
+      <ng-template matStepLabel>Visit Signs</ng-template>
+      <mat-form-field class="width-100">
+        <mat-label>Email</mat-label>
+        <input formControlName="email" matInput placeholder="Ex. pat@example.com" required>
+        <mat-error>
+          Email is Required
+        </mat-error>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="width-100">
+        <mat-label>Height(In cms)</mat-label>
+        <input matInput formControlName="height" required>
+        <mat-error>
+           Please Enter the Height
+        </mat-error>
+    </mat-form-field><br>
+    <mat-form-field class="width-100">  
+      <mat-label>Weight(In kgs)</mat-label>
+      <input matInput formControlName="weight" required>
+      <mat-error>
+        Please Enter the Weight
+      </mat-error>
+  </mat-form-field><br>
+  <mat-form-field class="width-100">
+    <mat-label>Blood Pressure(In mmHg)</mat-label>
+    <input matInput formControlName="bloodPressure" required>
+    <mat-error>
+      Please Enter the BloodPressure
+    </mat-error>
+</mat-form-field><br>
+<mat-form-field class="width-100">
+  <mat-label>Body Temperature(In celsius)</mat-label>
+  <input matInput formControlName="bodyTemp" required>
+  <mat-error>
+    Please Enter the Body Temperature
+  </mat-error>
+</mat-form-field><br>
+<mat-form-field class="width-100">
+  <mat-label>Respiration Rate(In BPM)</mat-label>
+  <input matInput  formControlName="respiratinRate" required>
+  <mat-error>
+    Please Enter the Respiration Rate
+  </mat-error>
+</mat-form-field>
+      <div>
+        <!-- <button mat-flat-button color="primary" matStepperNext>Next</button> -->
+        <button type="button" class="btn btn-primary" matStepperNext>Next</button>
+      </div>
+    </div>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <div formGroupName="diagnosis">
+      <ng-template matStepLabel>Diagnosis</ng-template>
+      <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource">
+          <ng-container matColumnDef="Diagnosis ID">
+            <th mat-header-cell *matHeaderCellDef> Diagnosis ID </th>
+            <td mat-cell *matCellDef="let element1" > {{element1.diagnosisDescription}} </td>
+          </ng-container>
+          <ng-container matColumnDef="Diagnosis Description">
+            <th mat-header-cell *matHeaderCellDef> Diagnosis Description </th>
+            <td mat-cell *matCellDef="let element" > {{element.diagnosisText}} </td>
+          </ng-container>
+          <ng-container matColumnDef="Action">
+            <th mat-header-cell *matHeaderCellDef>
+              <mat-checkbox (change)="$event ? masterToggle() : null"
+                            [checked]="selection.hasValue() && isAllSelected()"
+                            [indeterminate]="selection.hasValue() && !isAllSelected()">
+              </mat-checkbox>
+            </th>
+            <td mat-cell *matCellDef="let row">
+              <mat-checkbox (click)="$event.stopPropagation()"
+                            (change)="$event ? selection.toggle(row) : null"
+                            [checked]="selection.isSelected(row)"
+                            (change)=yourfunc(row)
+                            >
+              </mat-checkbox>
+            </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row  *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                       showFirstLastButtons 
+                       aria-label="Select page of periodic elements">
+        </mat-paginator>
+      </div>&nbsp;&nbsp;
+      
+      <div>
+        <button type="button" class="btn btn-secondary" matStepperPrevious>Back</button>&nbsp;&nbsp;
+        <button type="button" class="btn btn-primary" matStepperNext>Next</button>
+        <!-- <button mat-flat-button color="primary" matStepperPrevious>Back</button>&nbsp;&nbsp;
+        <button  mat-flat-button color="primary" matStepperNext>Next</button> -->
+      </div>
+    </div>
+  </mat-step>
+  <mat-step [stepControl]="thirdFormGroup">
+    <div formGroupName="medication">
+      <ng-template matStepLabel>Medication</ng-template>
+      <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSourceMedication">
+          <ng-container matColumnDef="Medication ID">
+            <th mat-header-cell *matHeaderCellDef> Medication ID </th>
+            <td mat-cell *matCellDef="let element1" > {{element1.drugName}} </td>
+          </ng-container>
+          <ng-container matColumnDef="Medication Description">
+            <th mat-header-cell *matHeaderCellDef> Medication Description </th>
+            <td mat-cell *matCellDef="let element" > {{element.medicationText}} </td>
+          </ng-container>
+          <ng-container matColumnDef="Action">
+            <th mat-header-cell *matHeaderCellDef>
+              <mat-checkbox (change)="$event ? masterToggle() : null"
+                            [checked]="selection.hasValue() && isAllSelected()"
+                            [indeterminate]="selection.hasValue() && !isAllSelected()">
+              </mat-checkbox>
+            </th>
+            <td mat-cell *matCellDef="let row">
+              <mat-checkbox (click)="$event.stopPropagation()"
+                            (change)="$event ? selection.toggle(row) : null"
+                            [checked]="selection.isSelected(row)"
+                          >
+              </mat-checkbox>
+            </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumnsMedication"></tr>
+          <tr mat-row  *matRowDef="let row; columns: displayedColumnsMedication;"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                       showFirstLastButtons 
+                       aria-label="Select page of periodic elements">
+        </mat-paginator>
+      </div>&nbsp;&nbsp;
+      <div>
+        <button type="button" class="btn btn-secondary" matStepperPrevious>Back</button>&nbsp;&nbsp;
+        <button type="button" class="btn btn-primary" matStepperNext>Next</button>
+        <!-- <button mat-flat-button color="primary" matStepperPrevious>Back</button>&nbsp;&nbsp;
+        <button mat-flat-button color="primary" matStepperNext>Next</button> -->
+      </div>
+    </div>
+  </mat-step>
+    <mat-step [stepControl]="fourthFormGroup">
+    <div formGroupName="procedure">
+      <ng-template matStepLabel>Procedures</ng-template>
+      <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource">
+          <ng-container matColumnDef="Diagnosis ID">
+            <th mat-header-cell *matHeaderCellDef> Diagnosis ID </th>
+            <td mat-cell *matCellDef="let element1" > {{element1.diagnosisDescription}} </td>
+          </ng-container>
+          <ng-container matColumnDef="Diagnosis Description">
+            <th mat-header-cell *matHeaderCellDef> Diagnosis Description </th>
+            <td mat-cell *matCellDef="let element" > {{element.diagnosisText}} </td>
+          </ng-container>
+          <ng-container matColumnDef="Action">
+            <th mat-header-cell *matHeaderCellDef>
+              <mat-checkbox (change)="$event ? masterToggle() : null"
+                            [checked]="selection.hasValue() && isAllSelected()"
+                            [indeterminate]="selection.hasValue() && !isAllSelected()">
+              </mat-checkbox>
+            </th>
+            <td mat-cell *matCellDef="let row">
+              <mat-checkbox (click)="$event.stopPropagation()"
+                            (change)="$event ? selection.toggle(row) : null"
+                            [checked]="selection.isSelected(row)"
+                            >
+              </mat-checkbox>
+            </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row  *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                       showFirstLastButtons 
+                       aria-label="Select page of periodic elements">
+        </mat-paginator>
+      </div>&nbsp;&nbsp;
+      <div>
+        <!-- <button mat-flat-button color="primary" matStepperPrevious>Back</button>&nbsp;&nbsp;
+        <button mat-flat-button color="primary" matStepperNext>Next</button> -->
+        <button type="button" class="btn btn-secondary" matStepperPrevious>Back</button>&nbsp;&nbsp;
+        <button type="button" class="btn btn-primary" matStepperNext>Next</button>
+      </div>
+    </div>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <!-- <button mat-flat-button color="primary" matStepperPrevious>Back</button>&nbsp;&nbsp;
+      <button mat-flat-button color="primary" (click)="stepper.reset()">Reset</button>&nbsp;&nbsp; -->
+      <button type="button" class="btn btn-secondary" matStepperPrevious>Back</button>&nbsp;&nbsp;
+      <button type="button" class="btn btn-secondary" (click)="stepper.reset()">Reset</button>&nbsp;&nbsp;
+      <!-- <button mat-flat-button color="primary" (click)="doPatientVisit(patientVisit.value)">Submit</button> -->
+      <button type="submit" class="btn btn-primary" (click)="doPatientVisit(patientVisit.value)">Submit</button>
+    </div><br>
+
+    <div *ngIf="result" class="alert alert-success d-flex align-items-center" role="alert">
+      <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+      <div>
+        {{result}}
+      </div>
+    </div>
+    <div *ngIf="err" class="alert alert-danger d-flex align-items-center" role="alert">
+      <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+      <div>
+        {{err}}
+      </div>
+    </div>
+    
+  </mat-step>
+</form>
+
+
+</mat-horizontal-stepper>

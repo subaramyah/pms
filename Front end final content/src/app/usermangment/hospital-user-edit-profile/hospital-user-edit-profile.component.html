@@ -1,0 +1,100 @@
+
+<div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center" style="padding-top: 3%;">
+    <mat-card class="box">
+      <b>Edit Profile</b>
+        
+        <form class="example-form" [formGroup]="editForm" >
+            <br><br>
+            <mat-card-content *ngFor="let item of hospitalUserData">
+                <div fxLayout="row">
+                <mat-form-field>
+                    <mat-label>Title</mat-label>
+                    <select matNativeControl formControlName="title"  [(ngModel)]="item.title"  class="form-control" >
+                      <option value="mr">Mr</option>
+                      <option value="dr">Dr</option>
+                      <option value="mrs">Mrs</option>
+                      <option value="miss">Miss</option>
+                    </select>
+                </mat-form-field>
+
+                  <mat-form-field class="firstname">
+                    <mat-label>First name</mat-label>
+                    <input matInput formControlName="firstName"  [(ngModel)]="item.firstName">
+                
+                  </mat-form-field>
+                  </div><br>
+
+                  <div fxLayout="row">
+                  <mat-form-field>
+                    <mat-label>Last name</mat-label>
+                    <input matInput formControlName="lastName"  [(ngModel)]="item.lastName">
+                  
+                  </mat-form-field>
+          
+                  <mat-form-field class="email">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="emailId"   [(ngModel)]="item.emailId">
+                  
+                  </mat-form-field>
+                  </div><br>
+
+                  <div fxLayout="row">
+                  <mat-form-field class="dob">
+                    <mat-label>DateOfBirth</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="dob" [max]="maxDate"  [(ngModel)]="item.dob">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                
+                  </mat-form-field>
+              
+                  <mat-form-field class="contact">
+                    <mat-label>Contact Number</mat-label>
+                    <input matInput type="number" formControlName="contactNumber"   [(ngModel)]="item.contactNumber">
+                
+                  </mat-form-field>
+                  </div><br>
+                  
+                  <div fxLayout="row">
+                    <mat-form-field>
+                      <mat-label>Gender</mat-label>
+                    <select matNativeControl formControlName="gender"  [(ngModel)]="item.gender" class="form-control" >
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                      <option value="other">Other</option>
+                    </select>
+                    
+                    </mat-form-field>
+            
+                    <mat-form-field class="address">
+                      <mat-label>Address</mat-label>
+                      <input matInput formControlName="address"  [(ngModel)]="item.address">
+                    
+                    </mat-form-field>
+                    </div><br>
+                    
+                  <div fxLayout="row">
+                    <mat-form-field>
+                      <mat-label>Specialization</mat-label>
+                      <input matInput formControlName="specialization"  [(ngModel)]="item.specialization">
+                    
+                    </mat-form-field>
+            
+                    <mat-form-field class="workexperience">
+                      <mat-label>Work Experience</mat-label>
+                      <input matInput formControlName="experience"  [(ngModel)]="item.experience">
+                    
+                    </mat-form-field>
+                    </div>
+  
+            </mat-card-content>
+            <div class="btn-block">
+            <button mat-flat-button color="primary"  (click)="submitForm()" class="btn-block1" >Submit</button>
+           </div>
+        </form>
+        <!-- <div class="alert" *ngIf="showMsg">
+          <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+          <strong> Data Saved Successfully!</strong> 
+        </div> -->
+    </mat-card>
+  </div>
+  

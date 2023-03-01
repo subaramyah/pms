@@ -1,0 +1,45 @@
+<!-- <mat-toolbar color="primary"> -->
+    <mat-toolbar>
+    <button class="example-icon menu-icon" aria-label="Menu" mat-icon-button (click)="clickMenu()">
+        <mat-icon>menu</mat-icon>
+    </button>
+
+    <span>
+        <h1 class="example-app-name">CT General Hospital</h1>
+    </span>&nbsp;&nbsp;
+
+    <!-- <span>
+        <label id="lblGreetings">{{greet}}</label>
+    </span> -->
+    <span class="example-spacer"></span>
+    
+     <span>
+         <p> {{email}}</p>
+     </span>
+    
+    <button [matMenuTriggerFor]="notification" matBadge="5" matBadgeOverlap="false" matBadgeColor="warn" id="navbarDropdownMenuLink" mat-menu-item class="example-icon notify-btn" aria-label="notifications"  >
+        <mat-icon>notifications</mat-icon>
+        
+    </button> 
+    <mat-menu #notification="matMenu" >
+        <button mat-menu-itemmatBadgeColor="warn">Appointment Schedule For Arvina james</button>
+     </mat-menu>
+    <div fxLayout="row" >
+        <div fxLayout="row" style="font-size: 15px;" >
+        <button [matMenuTriggerFor]="profile" mat-icon-button>
+            <mat-icon>account_circle</mat-icon>
+        </button>
+        </div>
+    </div>
+    <mat-menu #profile="matMenu">
+        <button mat-menu-item (click)="openDialog()">
+            <mat-icon>account_box</mat-icon> Profile
+        </button>
+        <button mat-menu-item routerLink="changePassword">
+            <mat-icon>change_circle</mat-icon> Change Password
+        </button>
+        <button mat-menu-item routerLink="">
+            <mat-icon>exit_to_app</mat-icon> Sign Out
+        </button>
+    </mat-menu>
+</mat-toolbar>

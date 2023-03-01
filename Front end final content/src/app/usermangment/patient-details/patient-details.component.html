@@ -1,0 +1,330 @@
+
+<mat-horizontal-stepper #stepper>
+  
+  <form style="text-align:center;"  #patientDetails = "ngForm" name="multistep" [formGroup]="multistep">
+    
+      <mat-step [stepControl]="firstFormGroup">
+  
+    
+      <div formGroupName="patientDetails">
+      <ng-template matStepLabel>Patient Details</ng-template>
+      
+        <!-- <mat-form-field> -->
+          <mat-form-field class="width-100">
+        <mat-label>Title</mat-label>
+        <select id = "title1"  formControlName="title" matNativeControl id="mySelectId" required>
+          <option value="" disabled selected></option>
+          <option value="Mr">Mr</option>
+          <option value="Ms">Ms</option>
+          <option value="Mrs">Mrs</option>
+          <option value="Dr">DR</option>
+        </select> 
+        <mat-error>
+          Title is required
+        </mat-error>
+      </mat-form-field><br>
+      <!-- <mat-form-field> -->
+        <mat-form-field class="width-50"> 
+        <mat-label>First Name</mat-label>
+        <input id = "firstName1" formControlName="firstName" matInput placeholder="First name" required>
+        <mat-error>
+          First Name is required
+        </mat-error>
+      </mat-form-field>
+      <!-- <mat-form-field> -->
+        <mat-form-field  class="width-50 ml-2">
+        <mat-label>Last Name</mat-label>
+        <input  formControlName="lastName" matInput placeholder="Last name" required>
+        <mat-error>
+          Last Name is required
+        </mat-error>
+      </mat-form-field><br>
+      <!-- <mat-form-field> -->
+        <mat-form-field class="width-50">
+        <mat-label>Date of Birth</mat-label>
+        <input formControlName="dateOfBirth" matInput [matDatepicker]="picker" required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error>
+          Date of Birth is required
+        </mat-error>
+      </mat-form-field>
+      <!-- <mat-form-field> -->
+        <mat-form-field class="width-50 ml-2">
+        <mat-label>Age</mat-label>
+        <input formControlName="age" matInput required>
+        <mat-error>
+          Age is required
+        </mat-error>
+      </mat-form-field><br>
+     <mat-form-field class="width-100">
+      <mat-label>Gender</mat-label>
+      <select matNativeControl formControlName="gender" required>
+        <option value="MALE">Male</option>
+        <option value="FEMALE">Female</option>
+        <option value="OTHER">Other</option>
+      </select>
+      <mat-error >
+        Gender is required
+    </mat-error> 
+    </mat-form-field><br>
+
+        <!-- <mat-radio-group formControlName="gender" aria-label="Select an option"><br>
+          <mat-radio-button value="1">Male</mat-radio-button>
+          <mat-radio-button value="2">Female</mat-radio-button>
+          <mat-radio-button value="3">Other</mat-radio-button>
+        </mat-radio-group><br> -->
+        <!-- <mat-form-field> -->
+          <mat-form-field class="width-50">
+          <mat-label>Race</mat-label>
+          <input formControlName="race" matInput>
+        </mat-form-field>
+        <!-- <mat-form-field> -->
+          <mat-form-field  class="width-50 ml-2">
+          <mat-label>Ethnicity</mat-label>
+          <input formControlName="ethnicity" matInput>
+        </mat-form-field><br>
+        <!-- <mat-form-field> -->
+          <mat-form-field class="width-100">
+          <mat-label>Languages Known</mat-label>
+          <input formControlName="languagesKnown" matInput>
+
+  </mat-form-field><br>
+  <!-- <mat-form-field> -->
+    <mat-form-field class="width-50">
+    <mat-label>Email</mat-label>
+    <input formControlName="email" matInput placeholder="Ex. pat@example.com" required>
+    <mat-error>
+  Email is required
+    </mat-error>
+  </mat-form-field>
+  <!-- <mat-form-field> -->
+    <mat-form-field  class="width-50 ml-2">
+    <mat-label>Contact Number</mat-label>
+    <input formControlName="contactNumber" matInput required>
+    <mat-error>
+      Contact Number is required
+    </mat-error>
+</mat-form-field><br>
+ 
+      <div>
+        <!-- <button mat-button matStepperNext>Next</button> -->
+        <!-- <button mat-raised-button color="accent" matStepperNext>Next</button> -->
+      
+        
+        <button type="button" class="btn btn-primary" matStepperNext>Next</button>
+      </div>
+    </div>
+  </mat-step>
+
+  <mat-step [stepControl]="secondFormGroup">
+    <div formGroupName="address">
+      <ng-template matStepLabel>Address</ng-template>
+      <!-- <mat-form-field> -->
+        <mat-form-field class="width-100">
+        <mat-label>Street</mat-label>
+        <input formControlName="street" matInput >
+        
+      </mat-form-field><br>
+      <!-- <mat-form-field> -->
+        <mat-form-field class="width-50">
+        <mat-label>City</mat-label>
+        <input  matInput formControlName="city" placeholder="Ex. San Francisco" required>
+        <mat-error>
+          City is required
+        </mat-error>
+        
+      </mat-form-field>
+      <!-- <mat-form-field> -->
+        <mat-form-field class="width-50 ml-2">
+        <mat-label>State</mat-label>
+        <input formControlName="state" matInput placeholder="Ex. California" required>
+        <mat-error>
+          State is required
+        </mat-error>
+        
+      </mat-form-field><br>
+      <!-- <mat-form-field> -->
+        <mat-form-field class="width-50" >
+        <mat-label>Country</mat-label>
+        <input  formControlName="country" matInput placeholder="Ex. America" required>
+        <mat-error>
+          Country is required
+        </mat-error>
+
+        
+      </mat-form-field>
+      <!-- <mat-form-field> -->
+        
+      <mat-form-field class="width-50 ml-2">
+        <mat-label>Postal Code</mat-label>
+        <input formControlName="postalCode" matInput #postalCode maxlength="6" placeholder="Ex. 941054" required>
+        <mat-hint>{{postalCode.value.length}} / 6</mat-hint>
+        <mat-error>
+          Postal code is required
+        </mat-error>
+      </mat-form-field>
+        
+      
+      <div>
+        <!-- <button mat-button matStepperPrevious>Back</button>&nbsp;&nbsp;
+        <button  mat-button matStepperNext>Next</button> -->
+        <!-- <button  mat-raised-button color="primary" matStepperPrevious>Back</button>&nbsp;&nbsp; -->
+        <button type="button" class="btn btn-secondary" matStepperPrevious>Back</button>&nbsp;&nbsp;
+        <button type="button" class="btn btn-primary" matStepperNext>Next</button>
+        <!-- <button mat-raised-button color="accent" matStepperNext>Next</button> -->
+      </div>
+    </div>
+  </mat-step>
+  <mat-step [stepControl]="thirdFormGroup">
+    <div formGroupName="kin">
+      <ng-template matStepLabel>Next Of Kin</ng-template>
+        <!-- <mat-form-field> -->
+          <mat-form-field class="width-100">
+          <mat-label>Title</mat-label>
+          <select id = "title2"  formControlName="title" matNativeControl id="mySelectId" required>
+          <!-- <select   matNativeControl id="mySelectId" required> -->
+            <option value="" disabled selected></option>
+            <option value="Mr">Mr</option>
+            <option value="Ms">Ms</option>
+            <option value="Mrs">Mrs</option>
+            <option value="Dr">DR</option>
+          </select> 
+          <mat-error>
+            Title is required
+          </mat-error>
+        </mat-form-field><br>
+        <!-- <mat-form-field> -->
+          <mat-form-field class="width-50">
+          <mat-label>First Name</mat-label>
+          <input formControlName="firstName" matInput placeholder="First name" required>
+          <mat-error>
+            First Name is required
+          </mat-error>
+        </mat-form-field>
+        <!-- <mat-form-field> -->
+          <mat-form-field  class="width-50 ml-2">
+          <mat-label>Last Name</mat-label>
+          <input formControlName="lastName" matInput placeholder="Last name" required>
+          <mat-error>
+            Last Name is required
+          </mat-error>
+        </mat-form-field><br>
+        <!-- <mat-form-field> -->
+          <mat-form-field class="width-100">
+          <mat-label>Relationship</mat-label>
+          <select formControlName="relationship" matNativeControl id="mySelectId" required>
+            <option value="" disabled selected></option>
+            <option value="Father">Father</option>
+            <option value="Mother">Mother</option>
+            <option value="Sibling">Sibling</option>
+            <option value="Spouse">Spouse</option>
+            <option value="Friend">Friend</option>
+          </select> 
+          <mat-error>
+            Select the relationship
+          </mat-error>
+        </mat-form-field><br>
+
+        <!-- <mat-form-field> -->
+          <mat-form-field class="width-50">
+          <mat-label>Email</mat-label>
+          <input formControlName="email" matInput placeholder="Ex. pat@example.com" required>
+          <mat-error>
+            Email is required
+          </mat-error>
+        </mat-form-field>
+        <!-- <mat-form-field> -->
+          <mat-form-field  class="width-50 ml-2">
+          <mat-label>Contact Number</mat-label>
+          <input  formControlName="contactNumber" matInput required>
+          <mat-error>
+            Contact number is required
+          </mat-error>
+      </mat-form-field>
+    
+      <div>
+        <!-- <button mat-button matStepperPrevious>Back</button>&nbsp;&nbsp;
+        <button mat-button matStepperNext>Next</button> -->
+        <!-- <button  mat-raised-button color="primary" matStepperPrevious>Back</button>&nbsp;&nbsp;
+        <button mat-raised-button color="accent" matStepperNext>Next</button> -->
+        <button type="button" class="btn btn-secondary" matStepperPrevious>Back</button>&nbsp;&nbsp;
+        <button type="button" class="btn btn-primary" matStepperNext>Next</button>
+      </div>
+    </div>
+  </mat-step>
+    <mat-step [stepControl]="fourthFormGroup">
+    <div formGroupName="patientAllergy">
+      <ng-template matStepLabel>Allergy Details</ng-template>
+      <mat-label>Patient has any Known allergies</mat-label>
+
+      
+
+      <mat-radio-group  formControlName="allergyRadio" aria-label="Select an option"><br>
+        <mat-radio-button value=1>Yes</mat-radio-button>
+        <mat-radio-button value =2>No</mat-radio-button>
+       
+      </mat-radio-group><br>
+      <!-- <mat-radio-group  formControlName="allergyRadio" aria-label="Select an option"><br>
+        <mat-radio-button value=1>Yes</mat-radio-button>
+        <mat-radio-button value =2>No</mat-radio-button>
+       
+      </mat-radio-group><br> -->
+        <!-- <mat-form-field> -->
+          <mat-form-field  class="width-50">
+          <mat-label>Allergy Id</mat-label>
+          <input formControlName="allergyId" matInput>
+        </mat-form-field><br>
+        <!-- <mat-form-field> -->
+          <mat-form-field  class="width-50">
+          <mat-label>Allergy Type</mat-label>
+          <input formControlName="allergyType" matInput>
+        </mat-form-field>
+      <div>
+        <!-- <button mat-button matStepperPrevious>Back</button>&nbsp;&nbsp;
+        <button type="submit" mat-button matStepperNext>Next</button> -->
+        <!-- <button  mat-raised-button color="primary" matStepperPrevious>Back</button>&nbsp;&nbsp;
+        <button mat-raised-button color="accent" matStepperNext>Next</button> -->
+        <button type="button" class="btn btn-secondary" matStepperPrevious>Back</button>&nbsp;&nbsp;
+        <button type="button" class="btn btn-primary" matStepperNext>Next</button>
+      </div>
+    </div>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <!-- <button mat-button matStepperPrevious>Back</button>&nbsp;&nbsp;
+      <button mat-button (click)="stepper.reset()">Reset</button>&nbsp;&nbsp; -->
+      <!-- <button  mat-raised-button color="primary" matStepperPrevious>Back</button>&nbsp;&nbsp; -->
+      <button type="button" class="btn btn-secondary" matStepperPrevious>Back</button>&nbsp;&nbsp;
+      <button type="button" class="btn btn-secondary" (click)="stepper.reset()">Reset</button>&nbsp;&nbsp;
+      <!-- <button type="button" class="btn btn-secondary" matStepperNext>Next</button> -->
+      <!-- <button mat-raised-button color="warn" (click)="stepper.reset()">Reset</button>&nbsp;&nbsp; -->
+      <button type="button" class="btn btn-primary" (click)="doPatient(patientDetails.value)">Submit</button>
+
+      <!-- <button mat-button (click)="doPatient(patientDetails.value)">Submit</button> -->
+    </div><br>
+
+    <div *ngIf="result" class="alert alert-success d-flex align-items-center" role="alert">
+      <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+      <div>
+        {{result}}
+      </div>
+    </div>
+    <div *ngIf="err" class="alert alert-danger d-flex align-items-center" role="alert">
+      <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+      <div>
+        {{err}}
+      </div>
+    </div>
+    
+ 
+  
+  </mat-step>
+</form>
+
+ 
+
+</mat-horizontal-stepper>

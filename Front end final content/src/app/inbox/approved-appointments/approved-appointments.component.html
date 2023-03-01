@@ -1,0 +1,33 @@
+<div class="example-table-container">
+
+    <table mat-table [dataSource]="approvedAppointmentData.data" class="example-table">
+        <script>console.log(approvedAppointmentData)</script>
+        <!-- patientID Column -->
+        <ng-container matColumnDef="appointmentId">
+            <th mat-header-cell [hidden]="true" *matHeaderCellDef>Appointment ID</th>
+            <td mat-cell [hidden]="true" *matCellDef="let row">{{row.appointmentId}}</td>
+        </ng-container>
+
+        <!-- patient_name Column -->
+        <ng-container matColumnDef="patientName">
+            <th mat-header-cell *matHeaderCellDef>Patient Name</th>
+            <td mat-cell *matCellDef="let row">{{row.patientName}}</td>
+        </ng-container>
+
+        <!-- subject Column -->
+        <ng-container matColumnDef="subject">
+            <th mat-header-cell *matHeaderCellDef>Subject</th>
+            <td mat-cell *matCellDef="let row">{{row.subject}}</td>
+        </ng-container>
+
+        <!-- appoinment Column -->
+        <ng-container matColumnDef="appointmentDate">
+            <th mat-header-cell *matHeaderCellDef>Appointment Date</th>
+            <td mat-cell *matCellDef="let row">{{row.appointmentDate}}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+            [ngStyle]="{'background-color':row.appointmentDate === '2021-03-19' ? 'Chartreuse' : '' }"></tr>
+    </table>
+</div>

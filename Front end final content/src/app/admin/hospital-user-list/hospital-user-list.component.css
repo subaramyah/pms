@@ -1,0 +1,19 @@
+table {
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  .matformfield1 {
+    font-size: 14px;
+    width: 15%;
+    /* margin-right: auto; */
+    margin-left: 70px;
+  }
+  .matcardtitle{
+    margin-left: 65px;
+    
+  }
+  mat-button-toggle-group {
+    margin-left: 12px;
+  }

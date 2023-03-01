@@ -1,0 +1,82 @@
+.sidenav-container {
+  width: auto;
+  height: 100%;
+    position: relative;
+    display: block;
+    //padding: 15px 0 15px 25px;
+    color: #fff;
+    transition: 0s;
+    margin-top: 0;
+    min-width: 100%;
+    text-align: center;
+    background: whitesmoke;
+
+}
+
+.sidenav {
+  width: 200px;
+  background-color: #009efb;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+  color:DodgerBlue;
+}
+
+.mat-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  text-align: center;
+  background-color: #009efb;
+
+}
+
+.mat-nav-list{
+  z-index: 1;
+  text-align: center;
+  //background-color: yellow;
+}
+//new
+.mat-nav-list .nav-link {
+  //background-color:pink;
+}
+
+.mat-nav-list .nav-link  .nav-link-text {
+  //background-color:palegreen;
+  color: white;
+  text-align: justify;
+  font-family: sans-serif;
+  font-size:medium;
+  //font-weight:bold ;
+}
+.box{
+  height: 100px;
+
+}
+img{
+  height: 100px;
+
+  width:110%;
+  display: block; /* remove extra space below image */
+}
+.dashboardlist{
+
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.lgt{
+  position: Absolute; 
+  top: 15px; 
+  right:40px;
+  font-family: sans-serif;
+  font-size:medium;
+  font-weight: bolder;
+  text-decoration: underline;
+  color: white;
+
+}

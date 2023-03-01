@@ -1,0 +1,163 @@
+.main-wrapper {
+    height: 100%;
+}
+
+.box {
+    position: relative;
+    top: 0;
+    opacity: 1;
+    float: left;
+    padding: 60px 50px 40px 50px;
+    width: 100%;
+    background: #fff;
+    border-radius: 20px;
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    z-index: 5;
+    max-width: 550px;
+}
+.box.back {
+    transform: scale(.95);
+    -webkit-transform: scale(.95);
+    -ms-transform: scale(.95);
+    top: -20px;
+    opacity: .8;
+    z-index: -1;
+}
+
+.box:before {
+    content: "";
+    width: 100%;
+    height: 30px;
+    border-radius: 20px;
+    position: absolute;
+    top: -10px;
+    background: rgba(255, 255, 255, .6);
+    left: 0;
+    transform: scale(.95);
+    -webkit-transform: scale(.95);
+    -ms-transform: scale(.95);
+    z-index: -1;
+}
+
+.main-wrapper .example-form {
+    min-width: 100%;
+    max-width: 300px;
+    width: 100%;
+}
+
+.main-wrapper .example-full-width,
+.main-wrapper .btn-block {
+    width: 100%;
+
+}
+
+.main-wrapper mat-card-header {
+    text-align: center;
+    width: 100%;
+    display: block;
+    font-weight: 700;
+}
+
+.main-wrapper mat-card-header mat-card-title {
+    font-size: 25px;
+    margin: 0;
+}
+
+.main-wrapper .mat-card {
+    padding: 15px 120px 70px;
+    line-height: normal;
+    padding-left: 60px;
+    padding-right: 270px;
+}
+
+.main-wrapper .mat-stroked-button {
+    border: 1px solid currentColor;
+    line-height: 54px;
+    background: #FFF7FA;
+}
+
+.main-wrapper .mat-form-field-appearance-legacy .mat-form-field-infix {
+    padding: 0.8375em 0;
+}
+
+
+ .mat-card-avatar{
+     justify-content: center;
+        
+  }
+
+ .mat-card-header{
+      background-color:darkblue !important;
+      padding-left:15px !important;
+      padding-top: 15px;
+      padding-right: 550px;
+      width: 100%;
+      height: 140px;
+       
+    }
+
+.example-full-width{
+    line-height: 20px;
+
+}
+
+.description {
+    color: #080911;
+    font-size: 12px;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 1.3em;
+    padding-top: 20px;
+}
+.chnpass {
+    float: center;
+}
+
+.name{
+    font-size: 25px;
+    color: white;
+    margin-top: 2px;
+}
+
+.capitalize {
+    text-transform: capitalize;
+ }
+
+ /* .mat-dialog-container{
+     height: 10%;
+     width: 10%;
+     min-height: 10%;
+     max-width: 10%;
+ } */
+
+ .fixedbutton {
+    position: fixed;
+    bottom: 0px;
+    right: 0px; 
+}
+.editbtn{
+    position: sticky;
+}
+.firstname,
+.email,
+.contact,
+.address,
+.workexperience{
+
+    padding-left: 20px;
+    width: 100%;
+}
+
+.dob{
+    width:180px;
+}
+.btn-block{
+    width: 100%;
+    margin-left: 90px;;
+    
+}
+.btn-block1{
+    width: 100%;
+}

@@ -1,0 +1,60 @@
+/* .footer-demo {
+    height: 100%;
+    /* Angular material adds "height:100%" to body tag by default. So, ignore this step in real-time application */
+
+/* }   */
+
+/* .demo-section {
+    border: 1px solid #bbb;
+}
+
+footer {
+    background-color: #ddd;
+    border-top: 1px solid #bbb;
+    text-align: center;
+    height: 30px;
+}
+
+#btmFooter {
+    align-self: flex-end;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+} */ 
+:host {
+    padding: 30px;
+}
+
+.footerClass p {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.navbar-header {
+    padding: 20px 7px;
+}
+
+.footerClass {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 9;
+    /* background-color:#2f00ffcb; */
+    background:#3E43D1;;
+    /* border-color: #3F5185;  */
+    max-height: 50px;
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 100%;
+    font-size: 12px;
+    /* height: 50px; */
+}
+
+#footerInfo {
+    font-size: 14px;
+    font-weight: 500;
+}

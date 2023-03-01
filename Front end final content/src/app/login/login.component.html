@@ -1,0 +1,149 @@
+<mat-card class="card1">
+    <picture>
+       
+        <img mat-card-image src="assets/images/narseBash.png"> 
+    </picture>
+</mat-card>
+
+<mat-card class="card2">
+    <mat-card-content>
+        <!-- <div class="header">
+            <h1>CT GENERAL HOSPITAL</h1>
+        </div>  -->
+       <!--<div id = "formContent">
+            <div class = "alert alert-warning" *ngif = 'invalidLogin'{{errorMessage}}></div>
+            <div class = "alert alert-success" *ngif = 'invalidLogin'{{successMessage}}></div>
+        </div>-->
+        <div class="header">
+            <picture>
+                <source media='(min-width:0px)' >
+                <img mat-card-image src="assets/images/ct_logo.PNG" alt="Photo of a Shiba Inu">
+            </picture>
+        </div>
+
+        <form (ngSubmit)="doLogin(userLogin.value)" #userLogin = "ngForm" name="loginForm" [formGroup]="loginForm">
+            
+            <div class="emailInput">
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input id = "email" formControlName="email"  matInput placeholder="Enter email address" required />
+                    <mat-error *ngIf="!loginForm.controls['email'].valid">
+                        Email is required
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Password</mat-label>
+                    
+                    <input  type= "password" id = "password" formControlName="password"  matInput [type]="hide ? 'password' : 'text'" required/>
+                    <button mat-icon-button matSuffix (click)="hide =!hide"
+                        [attr.aria-label]="'Hide Password'" [attr.aria-pressed]="hide">
+                        <mat-icon>
+                            {{ hide ? 'visibility_off' : 'visibility'}}
+                        </mat-icon>
+                    </button>
+                    <mat-error *ngIf="!loginForm.controls['password'].valid">
+                        Password is required
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <a routerLink="forgotPassword"><p class="forgot-password" style="font-family: 'Times New Roman';color:blue;font-weight: bolder;">Forgot Password?
+            </a>
+            <!-- <div>
+                <mat-checkbox id="isEmployee" color="primary"
+                    formControlName="isEmployee" (change) = "checkUser($event)">Are you Employee?
+                </mat-checkbox>
+            </div> -->
+            <div class = "button-row" >
+                <button type="submit" mat-raised-button color="primary" class="login-btn">Login</button>
+            </div>
+            <!-- <div class = "button-row" style="text-align:center"> -->
+                <!-- <tr> -->
+                    <!-- <a routerLink="user-registration"><p class="register" style="font-family: 'Times New Roman';font-weight: bolder;">New to CT General?
+                        <span style="color:blue;font-weight: bolder;">Sign Up</span></p>
+                    </a> -->
+                    <br>
+                    <a routerLink="userRegistration"><p class="register" style="font-family: 'Times New Roman';color:blue;font-weight: bolder;">New to CT General? Sign Up
+                    </a>
+                    <!-- <a routerLink="forgotPassword"><p class="forgot-password" style="font-family: 'Times New Roman';color:blue;font-weight: bolder;">Forgot Password?
+                    </a> -->
+                    <!-- <a routerLink="change-password"><p style="font-family: 'Times New Roman';font-weight: bolder;">Change Password?
+                    </a> -->
+                    <!-- </tr> -->
+            <!-- </div> -->
+        </form>
+    </mat-card-content>
+</mat-card>
+ 
+
+
+
+<!-- <mat-card> 
+    <mat-card-content> -->
+        <!-- <div class="header">
+            <h1>CT GENERAL HOSPITAL</h1>
+        </div>  -->
+       <!--<div id = "formContent">
+            <div class = "alert alert-warning" *ngif = 'invalidLogin'{{errorMessage}}></div>
+            <div class = "alert alert-success" *ngif = 'invalidLogin'{{successMessage}}></div>
+        </div>-->
+        <!-- <div class="header">
+            <picture>
+                <source media='(min-width:0px)' >
+                <img mat-card-image src="assets/images/ct_logo.PNG" alt="Photo of a Shiba Inu">
+            </picture>
+        </div>
+        <form (ngSubmit)="doLogin(userLogin.value)" #userLogin = "ngForm" name="loginForm" [formGroup]="loginForm">
+            
+            <div class="emailInput">
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input id = "email" formControlName="email"  matInput placeholder="Enter email address" required />
+                    <mat-error *ngIf="!loginForm.controls['email'].valid">
+                        Email is required
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Password</mat-label>
+                    
+                    <input  type= "password" id = "password" formControlName="password"  matInput [type]="hide ? 'password' : 'text'" required/>
+                    <button mat-icon-button matSuffix (click)="hide =!hide"
+                        [attr.aria-label]="'Hide Password'" [attr.aria-pressed]="hide">
+                        <mat-icon>
+                            {{ hide ? 'visibility_off' : 'visibility'}}
+                        </mat-icon>
+                    </button>
+                    <mat-error *ngIf="!loginForm.controls['password'].valid">
+                        Password is required
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-checkbox id="isEmployee" color="primary"
+                    formControlName="isEmployee" (change) = "checkUser($event)">Are you Employee?
+                </mat-checkbox>
+            </div>
+            <div class = "button-row" >
+             <button type="submit" mat-raised-button color="primary" class="login-btn">Login</button> 
+               
+            </div>
+            <div class = "button-row" style="text-align:center">
+                <tr>
+                     <a routerLink="user-registration"><p class="register" style="font-family: 'Times New Roman';font-weight: bolder;">New to CT General?
+                        <span style="color:blue;font-weight: bolder;">Sign Up</span></p>
+                    </a> 
+                    <a routerLink="userRegistration"><p class="register" style="font-family: 'Times New Roman';color:blue;font-weight: bolder;">New to CT General? Sign Up
+                    </a>
+                    <a routerLink="forgotPassword"><p class="forgot-password" style="font-family: 'Times New Roman';color:blue;font-weight: bolder;">Forgot Password?
+                    </a>
+                    <a routerLink="change-password"><p style="font-family: 'Times New Roman';font-weight: bolder;">Change Password?
+                    </a> 
+                    </tr>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>
+  -->

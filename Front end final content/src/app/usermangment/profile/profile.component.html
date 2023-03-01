@@ -1,0 +1,48 @@
+<div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="box" >
+    <div *ngFor="let item of profileData">
+       <mat-card-header>
+           <div mat-card-avatar class="example-header-image" ></div><span style="color:white;float: left;padding-left: 28px;padding-top: 5px;font-weight: lighter;font-size: 14px;">Profile</span> <h3 style="padding-left: 100px;color: white; padding-left: 120px;margin-top: -90px; max-width: 100%;" class="capitalize"> {{item.firstName}} {{item.lastName}}</h3>
+           <div class ="editbtn" style="padding-left: 440px;font-size: 20px;margin-top: 10px;"><button mat-button color="primary" style="color: white;" (click)="openEditForm()" >Edit Profile</button></div>
+          </mat-card-header>
+       <mat-card-content >
+               <div>  
+             </div>
+            
+             <div *ngIf=" svc.UserRole=='nurse' ||  svc.UserRole=='physician'"  fxLayout="row" style="padding-top: 20px;line-height: 1px;" >
+                <div style="padding-left: 60px;padding-top: 1px; ">
+                  <h5 style="color: darkblue;font-weight:bold;">EXPERIENCE</h5>
+                  <p style="text-align: center;">  </p>
+                </div>
+
+                <div style="padding-left: 50px; padding-top: 1px;line-height: 1px;">
+                  <h5 style="color: darkblue;font-weight:bold;">SPECIALIZATION</h5>
+                  <p style="font-size: 13px;text-align: center;"></p>
+                </div>
+            </div>  
+            <br><br>
+           <div fxLayout="row">
+            
+            <div>
+              <span style="font-size: 15px;font-weight: bold;color: navy;padding-left: 100px;padding-bottom: 200px;">Email</span>
+              <div fxLayout="row"> <mat-icon style="font-size:23px;color:black;padding-left: 60px;"> email</mat-icon><span class="nav-caption" style="font-size: 13px;padding-top: 5px;padding-left: 20px;">&nbsp;&nbsp;&nbsp;{{item.email}}</span></div><br>
+            </div>
+            <div>
+              <span style="font-size: 15px;font-weight: bold;color: navy;padding-left: 160px;padding-bottom: 200px;">Mobile</span>
+              <div fxLayout="row"> <mat-icon style="font-size:23px;color:black;padding-left: 120px;"> phone</mat-icon><span class="nav-caption" style="font-size: 13px;padding-top: 3px;padding-left: 20px;">&nbsp;&nbsp;&nbsp;{{item.contactNumber}}</span></div><br>
+            </div>
+          </div><br>
+             
+          <div>
+            <span style="font-size: 13px;font-weight: bold;color: navy;padding-left: 100px;padding-bottom: 50px;">DOB</span>
+            <div fxLayout="row"> <mat-icon style="font-size:23px;color:black;padding-left: 60px;"> calendar_today</mat-icon><span class="nav-caption" style="font-size: 13px;padding-top: 5px;padding-left: 20px;">&nbsp;&nbsp;{{item.dateOfBirth}}</span></div><br>
+          </div>
+      <!-- <button mat-button color="primary" class="fixedbutton" (click)="openPatientDetailsForm()">Fill Aditional Details</button>     --> 
+        </mat-card-content>
+    </div>
+
+  </mat-card>
+
+
+
+</div>

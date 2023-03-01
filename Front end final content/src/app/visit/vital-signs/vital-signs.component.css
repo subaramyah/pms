@@ -1,0 +1,104 @@
+.main-wrapper {
+    height: 100%;
+}
+
+.box {
+    position: relative;
+    top: 0;
+    opacity: 1;
+    float: left;
+    padding: 60px 50px 40px 50px;
+    width: 300%;
+    background: #fff;
+    border-radius: 10px;
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    z-index: 5;
+    max-width: 680px;
+}
+
+.main-wrapper .example-form {
+    min-width: 100%;
+    max-width: 400px;
+    width: 120%;
+}
+
+.main-wrapper .example-full-width,
+.main-wrapper .btn-primary {
+    width: 100%;
+}
+
+.main-wrapper mat-card-header {
+    text-align: center;
+    width: 100%;
+    display: block;
+    font-weight: 700;
+}
+
+.main-wrapper mat-card-header mat-card-title {
+    font-size: 30px;
+    margin: 0;
+}
+
+.main-wrapper .mat-card {
+    padding: 45px 70px 55px;
+    line-height: normal;
+}
+
+.main-wrapper .mat-stroked-button {
+    border: 1px solid currentColor;
+    line-height: 54px;
+    background: #FFF7FA;
+}
+
+.main-wrapper .mat-form-field-appearance-legacy .mat-form-field-infix {
+    padding: 0.8375em 0;
+}
+
+.alert{
+    color: green;
+  }
+  
+  .vitals{
+      width: 100%;
+      padding-left: 0px;
+      padding-right: 5px;
+  }
+  .weight{
+      width: 100%;
+      padding-left: 12px;
+      padding-right: 5px;
+  }
+  
+  .blood{
+      width: 100%;
+      padding-left: 12px;
+      padding-right: 5px;
+  }
+  .body{
+      width: 32%;
+      padding-left: 0px;
+      padding-right: 5px;
+      
+  }
+  
+  .respiration{
+      width: 30%;
+      padding-left: 12px;
+      padding-right: 5px;
+      
+  }
+
+  .email{
+    width: 30%;
+    padding-left: 12px;
+    padding-right: 5px;
+    
+}
+
+.width-50{width: 49%;}
+.ml-1{margin-left: 1%;}
+.ml-2{margin-left: 2%;}
+.width-100{width: 100%;}
+.width-25{width: 25%;}

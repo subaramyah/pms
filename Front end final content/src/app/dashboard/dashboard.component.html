@@ -1,0 +1,69 @@
+<!-- <app-patient-details></app-patient-details> -->
+<div class="grid-container">
+  <h1 class="mat-h1"></h1>
+  <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            {{card.title}}
+            <!-- <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+              <mat-icon>more_vert</mat-icon>
+            </button> -->
+            <mat-menu #menu="matMenu" xPosition="before">
+              <!-- <button mat-menu-item>Expand</button> -->
+              <!-- <button mat-menu-item>Remove</button> -->
+            </mat-menu>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+        <div> 
+          <div class="row"> 
+            <div class="col-md-4 col-xl-3">
+              <div class="card bg-c-green order-card">
+                    <div class="card-block">
+                        <h6 class="m-b-20">DOCTORS</h6>
+                        <h2 class="text-right"><i class="fas fa-user-md fa-5x f-left doctor"></i>
+                          <span>30</span>
+                        </h2>
+                        <!-- <p class="m-b-0">Completed Orders<span class="f-right">351</span></p> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-xl-3">
+                <div class="card bg-c-yellow order-card">
+                    <div class="card-block">
+                        <h6 class="m-b-20">NURSES</h6>
+                        <h2 class="text-right"><i class="fas fa-user-nurse  f-left"></i><span>250</span></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-xl-3">
+                <div class="card bg-c-pink order-card">
+                    <div class="card-block">
+                        <h6 class="m-b-20">PATIENTS</h6>
+                        <h2 class="text-right"><i class="fas fa-wheelchair f-left"></i><span>400</span></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-xl-3">
+              <div class="card bg-c-blue order-card">
+                  <div class="card-block">
+                      <h6 class="m-b-20">PHARMACISTS</h6>
+                      <h2 class="text-right"><i class="fas fa-briefcase-medical f-left"></i>
+                        <span>50</span></h2>
+                  </div>
+              </div>
+          </div>
+
+
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+<!-- 2nd card -->
+    
+  </mat-grid-tile>
+</mat-grid-list>
+</div>

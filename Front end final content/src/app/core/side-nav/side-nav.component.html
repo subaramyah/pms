@@ -1,0 +1,13 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+    <app-header class="example-toolbar" [class.example-is-mobile]="mobileQuery.matches"></app-header>
+
+    <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0" [style.marginBottom.px]="mobileQuery.matches ? 34 : 0">
+        <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" fixedTopGap="56" variantMin="60px">
+            <app-side-nav-item-list></app-side-nav-item-list>
+        </mat-sidenav>
+
+        <app-main fxLayout="row" fxLayoutAlign="center center"></app-main>
+    </mat-sidenav-container>
+
+    <app-footer class="example-footer"></app-footer>
+</div>

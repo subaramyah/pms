@@ -1,0 +1,95 @@
+
+<mat-nav-list>
+    <div>
+        <a mat-list-item routerLink="/core/inbox/sharedinbox">
+            <mat-icon [ngStyle]="{'color':'black'}">
+                <span class="material-icons"> inbox </span>
+            </mat-icon>
+            &nbsp; Inbox
+        </a>
+    </div>
+    <div>
+        <a *ngIf="showPhysicianBoard" mat-list-item routerLink="visit/visit_form">
+            <mat-icon [ngStyle]="{'color':'black'}">
+                <span class="material-icons"> notes </span>
+            </mat-icon>
+            &nbsp; Visit Form
+        </a>
+    </div>
+    <div>
+        <a *ngIf="showNurseBoard" mat-list-item routerLink="visit/vital_form">
+            <mat-icon [ngStyle]="{'color':'black'}">
+                <span class="material-icons"> notes </span>
+            </mat-icon>
+            &nbsp; Vital Signs
+        </a>
+    </div>
+    <div>
+        <a *ngIf="showAdminBoard" mat-list-item routerLink="admin/userRegistration">
+            <mat-icon [ngStyle]="{'color':'black'}">
+                <span class="material-icons"> how_to_reg </span>
+            </mat-icon>
+            &nbsp; Register Employee
+        </a>
+    </div>
+    <div>
+        <a *ngIf="showPatientBoard" mat-list-item routerLink="usermanagement/patientDetails">
+            <mat-icon [ngStyle]="{'color':'black'}">
+                <span class="material-icons"> details </span>
+            </mat-icon>
+            &nbsp; Patient Details
+        </a>
+    </div>
+    <div>
+        <a *ngIf="showAdminBoard" mat-list-item routerLink="admin/userList">
+            <mat-icon [ngStyle]="{'color':'black'}">
+                <span class="material-icons"> people </span>
+            </mat-icon>
+            &nbsp; Patient users
+        </a>
+    </div>
+    <div>
+        <a *ngIf="showAdminBoard" mat-list-item routerLink="admin/hospitalUserList">
+            <mat-icon [ngStyle]="{'color':'black'}">
+                <span class="material-icons"> supervised_user_circle </span>
+            </mat-icon>
+            &nbsp; Hospital users
+        </a>
+    </div>
+    <div>
+        <a *ngIf="showPatientBoard" mat-list-item  routerLink="visit/appointmentForm">
+            <mat-icon [ngStyle]="{'color':'black'}">
+                <span class="material-icons"> schedule </span>
+            </mat-icon>
+            &nbsp; Book Appointment
+        </a>
+    </div>
+   
+    <div>
+        <a *ngIf="showPhysicianBoard" mat-list-item  routerLink="schedule/appointmentDetails">
+            <mat-icon [ngStyle]="{'color':'black'}">
+                <span class="material-icons"> event_note </span>
+            </mat-icon>
+            &nbsp; Appointment Details
+        </a>
+    </div>
+    <div>
+        <a *ngIf="showPhysicianBoard" mat-list-item routerLink="usermanagement/calender">
+            <mat-icon [ngStyle]="{'color':'black'}">
+                <span class="material-icons"> calendar_today </span>
+            </mat-icon>
+            &nbsp; Calender
+        </a>
+    </div>
+        
+    <div>
+        <a *ngIf="showNurseBoard" mat-list-item routerLink="usermanagement/edit_profile">
+            <mat-icon [ngStyle]="{'color':'black'}">
+                <span class="material-icons"> notes </span>
+            </mat-icon>
+            &nbsp; Patient Details
+        </a>
+    </div>
+
+    <!-- </span> -->
+</mat-nav-list>

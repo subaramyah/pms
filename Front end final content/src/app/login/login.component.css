@@ -1,0 +1,145 @@
+.card1{
+    
+    max-width:58%;
+    margin: 2em auto;
+    /* max-height:70%; */
+    max-height:600px;
+    position: absolute;
+    left: 50px;
+    top: 10px;
+}
+.card2{
+    max-width: 34%;
+    margin: 2em auto;
+    text-align: center;
+    max-height: 600px;
+    position: absolute;
+    right: 50px;
+    top: 10px;
+
+}
+
+.header{
+
+    text-align: center;
+}
+
+.full-width{
+    width: 80%;
+}
+
+.button-row{
+    padding-top: 10px;
+}
+
+.button-row a{
+    margin-right: 8px;
+    text-align:center;
+}
+
+.forgot-password{
+    margin-right: 50px;
+   padding-left: 100px;
+   float: right;
+   
+}
+
+.emailInput{
+    padding-top: 10px;
+}
+
+.contentBody{
+    padding: 60px 1rem;
+    background:#1b6ca8;
+    display: block;
+}
+
+.aLink{
+    float:right;
+    padding-right: 60px;
+    text-decoration: none;
+}
+
+.login-btn{
+    width:50%;
+    min-width: unset!important;
+
+}
+
+
+.register {
+    margin-right: 125px;
+    float: right;
+}
+
+::ng-deep .mat-checkbox-layout {
+    white-space: normal !important;
+    font-size: small;
+}
+
+
+
+/* mat-card{
+    max-width: 500px;
+    margin: 2em auto;
+    text-align: center;
+    max-height: 600px;
+    position: absolute;
+    right: 50px;
+    top: -15px;
+}
+
+.header{
+    text-align: center;
+}
+
+.full-width{
+    width: 80%;
+}
+
+.button-row{
+    padding-top: 10px;
+}
+
+.button-row a{
+    margin-right: 8px;
+    text-align:center;
+}
+
+.forgot-password{
+   padding-left: 100px;
+   float: right;
+   
+}
+
+.emailInput{
+    padding-top: 10px;
+}
+
+.contentBody{
+    padding: 60px 1rem;
+    background:#1b6ca8;
+    display: block;
+}
+
+.aLink{
+    float:right;
+    padding-right: 60px;
+    text-decoration: none;
+}
+
+.login-btn{
+    width:50%;
+    min-width: unset!important;
+
+}
+
+
+.register {
+    float: left;
+}
+
+::ng-deep .mat-checkbox-layout {
+    white-space: normal !important;
+    font-size: small;
+} */

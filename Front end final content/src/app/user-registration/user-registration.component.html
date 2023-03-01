@@ -1,0 +1,156 @@
+<div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center"> 
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title>Registration</mat-card-title>
+    </mat-card-header>
+<div *ngIf="result" class="alert alert-success d-flex align-items-center" role="alert">
+      <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+      <div>
+        {{result}}
+      </div>
+    </div>
+    <div *ngIf="err" class="alert alert-danger d-flex align-items-center" role="alert">
+      <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+      <div>
+        {{err}}
+      </div>
+    </div>
+  
+
+      
+      <form class="example-form" #userPost = "ngForm" (ngSubmit)="onSubmit(userPost.value)">
+
+            <div class="example-container">
+              
+              <mat-form-field  class="width-100"> 
+                
+                <mat-label>First Name</mat-label>
+               
+                <input matInput name ="firstName" placeholder="First Name" ngModel required>
+               
+                <mat-error>
+                  First Name is required
+                </mat-error>
+                <mat-icon matSuffix style="font-size: 17px; padding-right: 4px;padding-bottom: 0px;">person</mat-icon>
+               
+              </mat-form-field>
+              
+              <!-- <mat-form-field  class="width-50 ml-2"> -->
+                <mat-form-field  class="width-100">
+                <mat-label>Lastname</mat-label>
+                <input matInput name ="lastName" placeholder="Last Name" ngModel required>
+                <mat-error>
+                  Last Name is required
+                </mat-error>
+                <mat-icon matSuffix style="font-size: 17px; padding-right: 4px;padding-bottom: 0px;">person</mat-icon>
+              </mat-form-field>
+              <br>
+ 
+              <mat-form-field  class="width-100">
+                <mat-label>Email address</mat-label>
+                <input matInput placeholder="Ex. pat@example.com" name ="email" ngModel required>
+                <mat-error>
+                  Email is required
+                </mat-error>
+                <mat-icon matSuffix style="font-size: 15px; padding-right: 4px;padding-bottom: 0px;"> email</mat-icon>
+              </mat-form-field>
+              
+ 
+              <!-- <mat-form-field  class="width-50 ml-2"> -->
+                <mat-form-field  class="width-100">
+                <mat-label>Contact Number</mat-label>
+                <input type="tel" matInput name ="contactNumber"  placeholder="Ex: 9876543334"  ngModel required>
+                <mat-error>
+                  Contact Number is required
+                </mat-error>
+                <mat-icon matSuffix style="font-size: 17px; padding-right: 4px;padding-bottom: 0px;">phone</mat-icon>
+              </mat-form-field>
+              <br>
+              <mat-form-field class="width-100">
+                  <mat-label>Gender</mat-label>
+                  <select matNativeControl name="gender" ngModel  required>
+                    <option value="MALE">Male</option>
+                    <option value="FEMALE">Female</option>
+                    <option value="OTHER">Other</option>
+                  </select>
+                  <mat-error >
+                    Gender is required
+                 </mat-error>
+                </mat-form-field>
+              <!-- <label id="example-radio-group-label">Gender: </label>
+              <br><br>
+              <mat-radio-group aria-label="Select an option" name ="gender" ngModel>
+                <mat-radio-button value="MALE">Male</mat-radio-button>
+                <mat-radio-button class="example-radio-button" value="FEMALE">Female</mat-radio-button>
+                <mat-radio-button class="example-radio-button" value="OTHER">Other</mat-radio-button>
+              </mat-radio-group>
+              <br><br> -->
+ 
+              <mat-form-field class="width-100">
+                <mat-label>Date of Birth</mat-label>
+                <input matInput [matDatepicker]="picker" name ="dateOfBirth" ngModel required>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error>
+                  Date Of Birth is Required
+                </mat-error>
+              </mat-form-field>
+ 
+             <mat-form-field class="width-100">
+                <mat-label>Enter password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" name ="password" ngModel required>
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error>
+                  Password is Required
+                </mat-error> 
+              </mat-form-field>
+              <br>
+ 
+              <mat-form-field class="width-100">
+                <mat-label>Enter Confirm password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" name ="confirmPassword" ngModel required>
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error>
+                 Confirm Password should be same as above pasword
+                </mat-error> 
+              </mat-form-field>
+              <br>
+
+              <mat-form-field class="width-100">
+                <mat-label>Role</mat-label>
+                <mat-select [(value)]="role" name ="role" ngModel required>
+                  <mat-option value = "ROLE_PATIENT">Patient</mat-option>
+                </mat-select>
+                <mat-error>
+                  Role is Required
+                 </mat-error> 
+              </mat-form-field>
+
+              
+              <!-- <mat-form-field class="width-100">
+                <mat-label>Role</mat-label>
+                <mat-select [(value)]="role" name ="role" ngModel required>
+                  <mat-option value = "ROLE_PATIENT">Patient</mat-option>
+                </mat-select>
+                <mat-error>
+                  Role is Required
+                 </mat-error> 
+              </mat-form-field> -->
+ 
+            </div><br>
+     
+      <button type="submit" class="btn btn-primary">Register</button>
+    </form>    
+  
+  </mat-card>
+</div>
+
+
+
+      
+    
+           

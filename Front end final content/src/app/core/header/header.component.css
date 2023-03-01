@@ -1,0 +1,20 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.notify-btn{
+    width: auto;
+}
+/* 
+.mat-toolbar.mat-primary {
+    background: #3F5185;
+    color: #fff;
+    max-height: 50px;
+  } */
+
+  .mat-toolbar {
+    background:#3E43D1;
+    color: #fff;
+    max-height: 50px;
+
+ }

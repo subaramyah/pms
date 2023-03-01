@@ -1,0 +1,167 @@
+<div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center" >
+
+  <!-- <p class="heading"><b>PMS <br/>Patient Registration</b></p> -->
+   
+ 
+  
+ <mat-card class="box">
+       <mat-card-header>
+             <mat-card-title>Register Employee</mat-card-title>
+       </mat-card-header>
+       <br>
+      <!-- <p class="login-box-msg">Register a new membership</p> -->
+      <form  [formGroup]="userRegisterForm" (ngSubmit)="userRegister()">
+        <!-- <div class="example-container"> -->
+       <mat-card-content>
+             <!-- Title -->
+             <mat-form-field class="title"> 
+            
+              <mat-label>Title</mat-label>
+                <!-- <select matNativeControl required formControlName="title"   class="form-control" > -->
+                  <select matNativeControl required formControlName="title" >
+                  <option value="mr">Mr.</option>
+                  <option value="mrs">Mrs.</option>
+                  <option value="miss">Miss.</option>
+                </select>
+                  
+                 <mat-error *ngIf="userRegisterForm.controls['title'].hasError('required')">
+                     Title is required
+                 </mat-error>
+             </mat-form-field>
+             <div fxLayout="row">
+                 <mat-form-field class="fname" >
+                  <mat-label >First Name</mat-label>
+                   <input matInput placeholder="First Name" formControlName="firstName" >
+                   <mat-error *ngIf="userRegisterForm.controls['firstName'].hasError('required') ">
+                     First Name is required
+                   </mat-error>
+                   <mat-error *ngIf="(!userRegisterForm.controls['firstName'].hasError('required')) ||(userRegisterForm.controls['firstName'].hasError('minLength')) ">
+                      First Name should be of minimum 3 characters
+                 </mat-error>
+                 <mat-icon matSuffix style="font-size: 17px; padding-right: 4px;padding-bottom: 0px;">person</mat-icon>
+                </mat-form-field>
+   
+                <mat-form-field class="lname" >
+                 <mat-label >Last Name</mat-label>
+                  <input matInput placeholder="Last Name" formControlName="lastName" >
+                  <mat-error *ngIf="userRegisterForm.controls['lastName'].hasError('required') ">
+                     Last Name is required
+                  </mat-error>
+                  <mat-error *ngIf="(!userRegisterForm.controls['lastName'].hasError('required')) ||(userRegisterForm.controls['lastName'].hasError('minLength')) ">
+                     Last Name should be of minimum 3 characters
+                </mat-error>
+                <mat-icon matSuffix style="font-size: 17px; padding-right: 4px;padding-bottom: 0px;">person</mat-icon>
+               </mat-form-field>
+              
+           </div>
+
+           <div class="mob-email" fxLayout="row">
+             <!-- Mobile Number -->
+             <mat-form-field class="mob-num">
+              <mat-label>Mobile Number</mat-label>
+              <input type="tel" matInput  formControlName="contactNumber">
+              <mat-error *ngIf="userRegisterForm.controls['contactNumber'].hasError('required')">
+                  Mobile Number is required
+              </mat-error>
+              <mat-error *ngIf="userRegisterForm.controls['contactNumber'].hasError('pattern')">
+               Enter valid number
+             </mat-error>
+             <mat-icon matSuffix style="font-size: 17px; padding-right: 4px;padding-bottom: 0px;">phone</mat-icon>
+            </mat-form-field>
+
+                <!-- Email -->
+               <mat-form-field class="example-full-width">
+                 <input type="text" matInput  formControlName="email"   placeholder="Email">
+                  <mat-error *ngIf="userRegisterForm.controls['email'].hasError('required')">
+                    Email is required
+                  </mat-error>
+                  <mat-error *ngIf="(userRegisterForm.controls['email'].hasError('email')) || (!userRegisterForm.controls['email'].hasError('required'))">
+                    Email should be in proper format
+                  </mat-error>
+                  <mat-icon matSuffix style="font-size: 15px; padding-right: 4px;padding-bottom: 0px;"> email</mat-icon>
+             </mat-form-field>
+
+
+             <!-- <mat-form-field hidden>
+              <input type="text" matInput  formControlName="password"   placeholder="password">
+               <mat-icon matSuffix style="font-size: 15px; padding-right: 4px;padding-bottom: 0px;"> Password</mat-icon>
+            </mat-form-field> -->
+
+           </div>
+
+      
+
+          <div fxLayout="row"> 
+                
+                  <!-- DOB -->
+                  <mat-form-field class="dob">
+                    <mat-label>Date Of Birth</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="dateOfBirth"   [max]="maxDate"  >
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-error *ngIf="userRegisterForm.controls['dateOfBirth'].hasError('required')">
+                      Date Of Birth is required
+                     </mat-error>
+                    </mat-form-field>
+          </div>
+      
+          <div fxLayout="row">
+            <!-- Gender -->
+            <mat-form-field  class="gender">
+              <mat-label>Gender</mat-label>
+              
+              <select matNativeControl required formControlName="gender"  >
+                <option value="MALE">Male</option>
+                <option value="FEMALE">Female</option>
+                <option value="OTHER">Other</option>
+              </select>
+              <mat-error *ngIf="userRegisterForm.controls['gender'].hasError('required')">
+                Gender is required
+             </mat-error>
+            </mat-form-field>
+          </div>
+          <div fxLayout="row">
+            <mat-form-field  class="role">
+              <mat-label>Role</mat-label>
+              <select matNativeControl required formControlName="role" >
+                <option value="ROLE_PHYSICIAN">Physician</option>
+                <option value="ROLE_NURSE">Nurse</option>
+              </select>
+              <mat-error *ngIf="userRegisterForm.controls['role'].hasError('required')">
+                  Role is required
+              </mat-error> 
+            </mat-form-field>
+          </div>
+          <div class="specialization" fxLayout="row" > 
+            <mat-form-field class="specialization" >
+             <mat-label >Specialization</mat-label>
+              <input matInput placeholder="Specialization" formControlName="specialization"   >
+               <mat-error *ngIf="userRegisterForm.controls['specialization'].hasError('required')">
+                 Specialization is <strong>required</strong>
+               </mat-error>
+               <mat-error *ngIf="userRegisterForm.controls['specialization'].hasError('minLength')">
+                   Specialization should be of<strong>minimum 3 characters</strong>
+               </mat-error>
+               <mat-icon matSuffix style="font-size: 17px; padding-right: 4px;padding-bottom: 0px;">work</mat-icon>
+           </mat-form-field>
+          </div>
+
+        </mat-card-content>
+        <!-- <button  mat-raised-button color="primary" class="btn-block">Register</button>  -->
+    
+        <button type="submit" class="btn btn-primary">Register</button>
+      </form>
+
+      <br>
+
+      
+     </mat-card>
+     
+   
+ </div>
+
+
+  
+
+
+

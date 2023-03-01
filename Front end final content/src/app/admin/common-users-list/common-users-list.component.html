@@ -1,0 +1,39 @@
+<div class="example-table-container" ><br>
+    <mat-card-header>
+        <mat-card-title class="matcardtitle" >Patient List</mat-card-title>
+    </mat-card-header>
+
+    <!-- <mat-form-field class="matformfield1" >
+       <mat-label>Search1</mat-label>
+       <input matInput (keyup)="applyFilter($event)" #input>
+    </mat-form-field>
+    -->
+  
+    <table class="table table-bordered">
+      <thead class="thead">
+        <tr>
+          <th>ID</th>
+          <!-- <th>Title</th> -->
+          <th>FirstName</th>
+          <th>Lastname</th>
+          <th>Email</th>
+          <th>ContactNumber</th>
+          <th>Gender</th>
+          <th>DateOfBirth</th>
+        </tr>
+      </thead>
+      <tbody class="tbody">
+        <tr *ngFor="let patient of patientDetails">
+          <td>{{patient.id}}</td>
+          <!-- <td>{{patient.title}}</td> -->
+          <td>{{patient.firstName}}</td>
+          <td>{{patient.lastName}}</td>
+          <td>{{patient.email}}</td>
+          <td>{{patient.contactNumber}}</td>
+          <td>{{patient.gender}}</td>
+          <td>{{patient.dateOfBirth}}</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>

@@ -1,0 +1,45 @@
+table {
+    width: 100%;
+  }
+  
+  th.mat-sort-header-sorted {
+    color: black;
+  }
+
+  .content-card{
+    width:95%;
+    height:max-content;
+
+  }
+
+  .example-container .mat-form-field {
+    /* margin-left: 15px; */
+    margin-right: 25px;
+  }
+
+  table {
+    width: 70%;
+  }
+
+  .box {
+    position: relative;
+    top: 0;
+    opacity: 1;
+    float: left;
+    padding: 100px 70px 50px 70px;
+    width: 100%;
+    background: #fff;
+    border-radius: 20px;
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    z-index: 5;
+    max-width: 700px;
+  }
+  
+  .mat-card-title {
+    font-size:15px !important;
+    font-weight: 500 !important;
+    text-align: justify;
+    color: rgb(50, 65, 204);
+    }
